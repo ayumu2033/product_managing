@@ -1,0 +1,17 @@
+{% extends "commons/base.html" %}
+ 
+{% block content %}
+
+ <h1>{{ model_name }}</h1>
+<form method="post" action="" class="mb-5">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+        
+    <input type="submit" value="送信" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+<a href="{% url list_url_name %}">一覧へ戻る</a>
+    
+{% endblock %}

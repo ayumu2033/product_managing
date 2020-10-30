@@ -1,0 +1,19 @@
+{% extends "commons/base.html" %}
+ 
+{% block content %}
+ <h1>{{ model_name }}</h1>
+ <a href="{% url create_url_name %}">CREATE</a>
+ 
+<ul  class="mt-2">
+    {% for item in object_list %}
+    <li>
+      <a href="{% url detail_url_name item.id %}">{{ item }}</a>
+      <a href="{% url update_url_name item.id %}">EDIT</a>
+      <a href="{% url delete_url_name item.id %}">DELETE</a>
+    </li>
+    {% empty %}
+    <h5>No Item</h5>
+    {% endfor %}
+  </ul>
+    
+{% endblock %}
